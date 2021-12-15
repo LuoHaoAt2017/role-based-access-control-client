@@ -1,5 +1,5 @@
 {
-  "name": "session-tracking",
+  "name": "role-based-access-control-client",
   "version": "1.0.0",
   "description": "会话追踪",
   "main": "index.js",
@@ -71,12 +71,12 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/LuoHaoAt2017/session-tracking.git"
+    "url": "git+https://github.com/LuoHaoAt2017/role-based-access-control-client.git"
   },
   "author": "LuoHao",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/LuoHaoAt2017/session-tracking/issues"
+    "url": "https://github.com/LuoHaoAt2017/role-based-access-control-client/issues"
   },
-  "homepage": "https://github.com/LuoHaoAt2017/session-tracking#readme"
+  "homepage": "https://github.com/LuoHaoAt2017/role-based-access-control-client#readme"
 }
