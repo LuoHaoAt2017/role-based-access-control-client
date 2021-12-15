@@ -6,3 +6,9 @@ interface Window {
 interface AppConfig {
   redirect: string,
 }
+
+interface Response {
+  success: boolean;
+  errMesg?: string;
+  data: any;
+}

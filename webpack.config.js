@@ -4,8 +4,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
   entry: {
-    'index': './src/index.ts',
-    'login': './modules/login/index.ts',
+    'home': './src/index.ts',
+    'index': './modules/login/index.ts',
   },
   output: {
     filename: '[name].bundle.js',
@@ -43,15 +43,15 @@ module.exports = {
       template: path.resolve('./public/index.html'),
       favicon: path.resolve('./public/favicon.ico'),
       title: '基于角色的权限设计-首页',
-      filename: 'index.html',
-      chunks: ['index']
+      filename: 'home.html',
+      chunks: ['home']
     }),
     new HtmlWebpackPlugin({
       template: path.resolve('./public/index.html'),
       favicon: path.resolve('./public/favicon.ico'),
       title: '基于角色的权限设计-登录',
-      filename: 'login.html',
-      chunks: ['login']
+      filename: 'index.html',
+      chunks: ['index']
     }),
     new CleanWebpackPlugin(),
     new VueLoaderPlugin()

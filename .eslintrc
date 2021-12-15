@@ -10,10 +10,20 @@
     "plugin:vue/recommended",
     "plugin:@typescript-eslint/recommended"
   ],
-  "rules": {},
+  "rules": {
+    "vue/max-attributes-per-line": "off",
+    "vue/html-self-closing": "off",
+    "vue/attributes-order": "off",
+    "vue/multi-word-component-names": "off",
+    "vue/component-definition-name-casing": "off",
+    "@typescript-eslint/no-empty-function": "off"
+  },
   "env": {
     "browser": true,
     "node": true,
     "es2021": true
+  },
+  "globals": {
+    "$": true
   }
 }

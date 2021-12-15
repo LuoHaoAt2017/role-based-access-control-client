@@ -7,6 +7,7 @@ import Antd from 'ant-design-vue';
 import 'ant-design-vue/dist/antd.css';
 import axios from './utils/axios';
 import { AppStart } from './utils/app-start';
+
 Vue.prototype.$axios = axios;
 Vue.prototype.$bus = new Vue();
 Vue.use(Antd);
@@ -28,6 +29,6 @@ Vue.use(Antd);
     }
   } else {
     // 没有登录的情况下，跳转到登录页面。
-    window.location.href = 'http://localhost:8088/login.html';
+    window.location.href = 'http://localhost:8088/index.html';
   }
 })();

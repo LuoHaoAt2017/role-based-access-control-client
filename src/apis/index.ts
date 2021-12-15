@@ -1,17 +1,22 @@
-import axios from "../utils/axios";
+import axios from "@/utils/axios";
 
-interface User {
-  username: string;
-  password: string;
+export function GetSciencesMember() {
+  return axios.request({
+    url: "/sciences-member",
+    method: "get"
+  });
 }
 
-export function login({ username, password }: User) {
+export function GetEngineerMember() {
   return axios.request({
-    url: "/login",
-    method: "POST",
-    data: {
-      username,
-      password,
-    },
+    url: "/engineer-member",
+    method: "get"
+  });
+}
+
+export function Logout() {
+  return axios.request({
+    url: "/logout",
+    method: "get"
   });
 }
