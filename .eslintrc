@@ -11,6 +11,7 @@
     "plugin:@typescript-eslint/recommended"
   ],
   "rules": {
+    "no-debugger": "off",
     "vue/max-attributes-per-line": "off",
     "vue/html-self-closing": "off",
     "vue/attributes-order": "off",
