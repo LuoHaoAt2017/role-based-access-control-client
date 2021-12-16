@@ -1,26 +1,37 @@
 <template>
   <div class="home">
     <h5>中国科学院全体院士名单</h5>
-    <ul class="list-group">
-      <li class="list-group-item" v-for="(item, index) in people" :key="index">
-        <a :href="item.href" class="list-group-item">
-          {{ item.name }}
-        </a>
-      </li>
-    </ul>
+    <app-loading :loading="loading" class="loading">
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          v-for="(item, index) in people"
+          :key="index"
+        >
+          <a :href="item.href" class="list-group-item">
+            {{ item.name }}
+          </a>
+        </li>
+      </ul>
+    </app-loading>
   </div>
 </template>
 <script>
 import { GetSciencesMember } from "@/apis/index";
+import AppLoading from "../components/app-loading.vue";
 export default {
   name: "home",
-  components: {},
+  components: {
+    AppLoading,
+  },
   data() {
     return {
       people: [],
+      loading: false,
     };
   },
   mounted() {
+    this.loading = true;
     GetSciencesMember()
       .then((resp) => {
         if (resp.successful) {
@@ -29,6 +40,9 @@ export default {
       })
       .catch((error) => {
         this.$message.error(error);
+      })
+      .finally(() => {
+        this.loading = false;
       });
   },
 };
@@ -50,8 +64,12 @@ export default {
     margin: 0;
     padding: 0;
   }
-  ul {
+  .loading {
     height: calc(100% - 54px);
+  }
+  ul {
+    width: 100%;
+    height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
   }

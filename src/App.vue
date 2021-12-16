@@ -22,14 +22,16 @@ export default {
 .app {
   height: 100%;
   padding: 0 16px;
+  overflow-y: hidden;
+  overflow-x: hidden;
   .app-header {
-    border-bottom: thin solid #ccc;
+    // border-bottom: thin solid #ccc;
   }
   .app-content {
     height: calc(100% - 54px - 54px);
   }
   .app-footer {
-    border-top: thin solid #ccc;
+    // border-top: thin solid #ccc;
   }
 }
 </style>
