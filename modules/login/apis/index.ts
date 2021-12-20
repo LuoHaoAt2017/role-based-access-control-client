@@ -5,9 +5,20 @@ export interface User {
   password: string;
 }
 
-export function login({ username, password }: User) {
+export function Login({ username, password }: User) {
   return axios.request({
     url: "/login",
+    method: "POST",
+    data: {
+      username,
+      password,
+    },
+  });
+}
+
+export function Register({ username, password }: User) {
+  return axios.request({
+    url: "/register",
     method: "POST",
     data: {
       username,

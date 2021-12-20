@@ -4,8 +4,8 @@
 - 登录网站，选择商品放入购物车后关闭浏览器。再次打开时，发现又要重新登录。
 - 登录网站，在一个页面逗留了很久，终于决定要买了，却提示你重新登录。
 
+https://www.zhihu.com/question/19786827
 https://zhuanlan.zhihu.com/p/42918845
-
 https://github.com/auth0/express-jwt
 https://github.com/expressjs/cookie-session
 https://github.com/js-cookie/js-cookie

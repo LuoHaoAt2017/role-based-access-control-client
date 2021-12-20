@@ -4,11 +4,24 @@ interface Window {
 }
 
 interface AppConfig {
-  redirect: string,
+  redirect?: string,
+  userInfo: UserInfo
 }
 
-interface Response {
-  success: boolean;
-  errMesg?: string;
-  data: any;
+declare namespace RBAC {
+  interface UserInfo {
+    userId: string;
+    userName: string;
+    roles?: string[];
+  }
+  
+  interface RootState {
+    userInfo: UserInfo
+  }
+
+  interface Response {
+    successful: boolean;
+    errMesg?: string;
+    data: any;
+  }
 }

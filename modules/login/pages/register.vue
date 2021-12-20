@@ -6,15 +6,15 @@
       :wrapper-col="{ span: 18 }"
     >
       <a-form-item label="用户名">
-        <a-input type="text" name="username" />
+        <a-input type="text" name="username" v-model="username" />
       </a-form-item>
       <a-form-item label="密码">
-        <a-input type="password" name="password" />
+        <a-input type="password" name="password" v-model="password" />
       </a-form-item>
-      <a-form-item :wrapper-col="{ span: 12, offset: 6 }">
-        <a-button-group style="width: 300px">
-          <a-button type="danger" style="width: 100%"> 注册 </a-button>
-          <a-button type="primary" style="width: 100%" @click="register">
+      <a-form-item :wrapper-col="{ span: 20, offset: 4 }">
+        <a-button-group style="width: 100%">
+          <a-button type="danger" style="width: 50%" @click="register"> 注册 </a-button>
+          <a-button type="primary" style="width: 50%" @click="goto">
             前往登录
           </a-button>
         </a-button-group>
@@ -23,20 +23,23 @@
   </div>
 </template>
 <script>
-import cookies from "js-cookie";
-import { login } from "../apis";
-
+import { Register } from "../apis";
 export default {
   name: "register",
+  data() {
+    return {
+      username: "",
+      password: "",
+    };
+  },
   methods: {
     register() {
-      login({
-        username: "luohao",
-        password: "123",
+      Register({
+        username: this.username,
+        password: this.password,
       })
         .then((resp) => {
           if (resp.successful) {
-            cookies.set("rbac-cookie", resp.data);
             window.location.href = "http://localhost:8088/index.html";
           }
         })
@@ -44,6 +47,11 @@ export default {
           console.error(err);
         });
     },
+    goto() {
+      this.$router.push({
+        name: 'login'
+      });
+    }
   },
 };
 </script>

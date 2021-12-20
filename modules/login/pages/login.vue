@@ -12,7 +12,7 @@
           <a-button type="primary" style="width: 50%" @click="login">
             登录
           </a-button>
-          <a-button type="danger" style="width: 50%">
+          <a-button type="danger" style="width: 50%" @click="goto">
             前往注册
           </a-button>
         </a-button-group>
@@ -21,7 +21,7 @@
   </div>
 </template>
 <script>
-import { login } from "../apis";
+import { Login } from "../apis";
 export default {
   name: "Login",
   data() {
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     login() {
-      login({
+      Login({
         username: this.username,
         password: this.password,
       })
@@ -46,6 +46,11 @@ export default {
           this.$message.error(err.errorMesg);
         });
     },
+    goto() {
+      this.$router.push({
+        name: 'register'
+      });
+    }
   },
 };
 </script>
