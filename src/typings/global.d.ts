@@ -25,3 +25,12 @@ declare namespace RBAC {
     data: any;
   }
 }
+
+declare enum DeptType {
+  Official = 1,
+  Population = 2,
+  Etiquette = 3,
+  Defense = 4,
+  Criminal = 5,
+  Engineer = 6
+}

@@ -1,27 +1,54 @@
 <template>
   <div class="app-header">
-    <a-button @click="goHome" type="primary">首页</a-button>
+    <button class="btn btn-primary" @click="goHome" type="primary">首页</button>
     <h5>基于角色的权限设计</h5>
-    <a-button @click="logout" type="danger">退出</a-button>
+    <div class="dropdown">
+      <button
+        class="btn btn-success dropdown-toggle"
+        type="button"
+        id="settings"
+        data-toggle="dropdown"
+        aria-expanded="false"
+      >
+        设置
+      </button>
+      <div class="dropdown-menu">
+        <a class="dropdown-item" @click="gotoOrg">
+          组织机构
+        </a>
+        <a class="dropdown-item" @click="logout">
+          退出
+        </a>
+      </div>
+    </div>
   </div>
 </template>
 <script>
-import { Logout } from '@/apis/index';
+import { Logout } from "@/apis/index";
 export default {
-  name: 'app-header',
+  name: "app-header",
   methods: {
     logout() {
-      Logout().then(() => {
-        window.location.href = 'http://localhost:8088/index.html'
-      }).catch(() => {
-        this.$message.error("退出登录失败");
-      });
+      Logout()
+        .then(() => {
+          window.location.href = "http://localhost:8088/index.html";
+        })
+        .catch(() => {
+          this.$message.error("退出登录失败");
+        });
     },
     goHome() {
-      window.location.href = 'http://localhost:8088/home.html'
+      this.$router.push({
+        name: "Home",
+      });
+    },
+    gotoOrg() {
+      this.$router.push({
+        name: 'Organization'
+      });
     }
-  }
-}
+  },
+};
 </script>
 <style lang="less" scoped>
 .app-header {

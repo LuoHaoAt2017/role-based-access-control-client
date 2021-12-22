@@ -13,5 +13,6 @@ export default {
   height: 54ox;
   line-height: 54px;
   text-align: center;
+  background: #eff;
 }
 </style>

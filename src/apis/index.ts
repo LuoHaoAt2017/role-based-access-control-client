@@ -5,6 +5,27 @@ export interface User {
   password: string;
 }
 
+export function GetUsers() {
+  return axios.request({
+    url: "/GetAllUser",
+    method: "get"
+  });
+}
+
+export function GetRoles() {
+  return axios.request({
+    url: "/SearchRole",
+    method: "get"
+  });
+}
+
+export function GetDepts() {
+  return axios.request({
+    url: "/SearchDepartment",
+    method: "get"
+  });
+}
+
 export function GetSciencesMember() {
   return axios.request({
     url: "/sciences-member",
@@ -21,10 +42,10 @@ export function GetEngineerMember() {
 
 export function GetUserInfo(userId: string) {
   return axios.request({
-    url: "/user",
+    url: "/GetUserById",
     method: "GET",
     params: {
-      userId: userId
+      uid: userId
     }
   });
 }

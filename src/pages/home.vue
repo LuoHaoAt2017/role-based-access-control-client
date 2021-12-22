@@ -8,7 +8,7 @@
           v-for="(item, index) in people"
           :key="index"
         >
-          <a :href="item.href" class="list-group-item">
+          <a :href="item.href">
             {{ item.name }}
           </a>
         </li>
@@ -18,12 +18,8 @@
 </template>
 <script>
 import { GetSciencesMember } from "@/apis/index";
-import AppLoading from "../components/app-loading.vue";
 export default {
   name: "home",
-  components: {
-    AppLoading,
-  },
   data() {
     return {
       people: [],
@@ -72,6 +68,9 @@ export default {
     height: 100%;
     overflow-y: scroll;
     overflow-x: hidden;
+    li {
+      padding: 0.25rem 1.25rem;
+    }
   }
 }
 </style>

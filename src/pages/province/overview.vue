@@ -3,12 +3,12 @@
     <table class="table table-bordered table-hover">
       <thead>
         <tr>
-          <th scope="col" style="width: 50px;">#</th>
-          <th scope="col" style="width: 100px;">部门名称</th>
-          <th scope="col" style="width: 300px;">部门职责</th>
-          <th scope="col" style="width: 120px;">部门长官</th>
-          <th scope="col" style="width: 150px;">创建时间</th>
-          <th scope="col" style="width: 150px;">修改时间</th>
+          <th scope="col">#</th>
+          <th scope="col">部门名称</th>
+          <th scope="col">部门职责</th>
+          <th scope="col">部门长官</th>
+          <th scope="col">创建时间</th>
+          <th scope="col">修改时间</th>
           <th scope="col">允许操作</th>
         </tr>
       </thead>

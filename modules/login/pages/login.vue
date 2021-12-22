@@ -38,7 +38,8 @@ export default {
       })
         .then((resp) => {
           if (resp.successful) {
-            window.location.href = "http://localhost:8088/home.html";
+            const uid = resp.data.id;
+            window.location.href = `http://localhost:8088/home.html?uid=${uid}`;
             return;
           }
         })
