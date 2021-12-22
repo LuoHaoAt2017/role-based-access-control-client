@@ -70,6 +70,9 @@ export default {
     overflow-x: hidden;
     li {
       padding: 0.25rem 1.25rem;
+      a {
+        font-size: 16px;
+      }
     }
   }
 }

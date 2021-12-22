@@ -1,6 +1,6 @@
 <template>
   <div class="app-header">
-    <button class="btn btn-primary" @click="goHome" type="primary">首页</button>
+    <a-icon type="home" @click="goHome" size="24px" />
     <h5>基于角色的权限设计</h5>
     <div class="dropdown">
       <button

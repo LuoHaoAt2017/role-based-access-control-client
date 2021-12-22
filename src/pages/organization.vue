@@ -6,6 +6,7 @@
           <th scope="col" style="width: 50px">#</th>
           <th scope="col" style="width: 200px">人员名称</th>
           <th scope="col">角色列表</th>
+          <th scope="col">修改时间</th>
         </tr>
       </thead>
       <tbody>
@@ -16,12 +17,13 @@
             <span v-if="item.id === userInfo.id" class="badge badge-secondary">本人</span>
           </td>
           <td>
-            <a-select mode="multiple" style="width: 100%">
-              <a-select-option v-for="(elem, j) in roles" :key="j">
+            <a-select mode="multiple" style="width: 100%" :value="item.roleIds" @change="(value) => onChange(item, value)">
+              <a-select-option v-for="(elem, j) in roles" :key="j" :value="elem.id">
                 {{ elem.nick_name }}
               </a-select-option>
             </a-select>
           </td>
+          <td style="width:200px;">{{ item.updated_time | formatTime }}</td>
         </tr>
       </tbody>
     </table>
@@ -30,12 +32,12 @@
 <script>
 import moment from "moment";
 import { mapState } from "vuex";
-import { GetUsers, GetRoles } from "@/apis/index";
+import { GetUsersWithRole, UpdateUserRoles, GetRoles } from "@/apis/index";
 export default {
   name: "Organization",
   filters: {
     formatTime(value) {
-      return moment(value).format("YYYY-MM-DD HH:mm");
+      return moment(value).format("YYYY-MM-DD HH:mm:ss");
     },
   },
   data() {
@@ -53,10 +55,15 @@ export default {
   },
   methods: {
     getUsers() {
-      GetUsers()
+      GetUsersWithRole()
         .then((resp) => {
           if (resp.successful) {
-            this.users = resp.data;
+            this.users = resp.data.map(elem => ({
+              id: elem.id,
+              username: elem.username,
+              updated_time: elem.updated_time,
+              roleIds: elem.roles.map(x => x.id)
+            }));
           }
         })
         .catch((error) => {
@@ -74,6 +81,18 @@ export default {
           this.$message.error(error);
         });
     },
+    onChange(user, value) {
+      UpdateUserRoles({
+        roles: value,
+        userId: user.id
+      }).then((res) => {
+        if (res.successful) {
+          user.roleIds = value;
+        }
+      }).catch((err) => {
+        this.$message.error(err);
+      });
+    }
   },
 };
 </script>

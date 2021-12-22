@@ -12,6 +12,27 @@ export function GetUsers() {
   });
 }
 
+export function GetUsersWithRole() {
+  return axios.request({
+    url: "/GetAllUserWithRole",
+    method: "get"
+  });
+}
+
+export function UpdateUserRoles({
+  userId,
+  roles
+}) {
+  return axios.request({
+    url: "/SetUserRoles",
+    method: "get",
+    params: {
+      roles: roles,
+      userId: userId,
+    }
+  });
+}
+
 export function GetRoles() {
   return axios.request({
     url: "/SearchRole",
